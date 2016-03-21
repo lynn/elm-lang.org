@@ -39,9 +39,9 @@ Here we are just describing the general shape of the data we are working with. `
 import String
 
 
-longestName : List String -> Int
-longestName names =
-  List.maximum (List.map String.length names)
+totalNameLength : List String -> Int
+totalNameLength names =
+  List.sum (List.map String.length names)
 
 
 isLong : { record | pages : Int } -> Bool
@@ -49,7 +49,7 @@ isLong book =
   book.pages > 400
 ```
 
-In the `longestName` example, we are requiring that our input is a list of strings. If someone tries to pass in a list of integers or books, the `String.length` function would break, so this contract rules that out. We also say the `longestName` function is definitely going to return an `Int` so if we use its result somewhere else, we have a 100% guarantee that it's a whole number.
+In the `totalNameLength` example, we are requiring that our input is a list of strings. If someone tries to pass in a list of integers or books, the `String.length` function would break, so this contract rules that out. We also say the `totalNameLength` function is definitely going to return an `Int`, so if we use its result somewhere else, we have a 100% guarantee that it's a whole number.
 
 The `isLong` example is doing exactly the same thing. It requires a record with a field name `pages` that holds integers. Any record will do, with however many other fields you want, but we definitely need the `pages` field!
 
